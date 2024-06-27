@@ -1,0 +1,9 @@
+YouTube Videos to Watch:
+
+NBA MVP webscraping/ML :  https://www.youtube.com/watch?v=JGQGd-oa0l4
+
+Learn About LLMs: https://www.youtube.com/@AndrejKarpathy/videos
+
+Blog to Read:
+
+Query LLMs: https://www.lesswrong.com/posts/Rdwui3wHxCeKb7feK/getting-50-sota-on-arc-agi-with-gpt-4o#:~:text=I%20recently%20got%20to%2050,if%20this%20is%20confusing%2C%20go

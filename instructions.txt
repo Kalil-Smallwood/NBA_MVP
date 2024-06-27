@@ -1,0 +1,7 @@
+pip install pandas
+pip install beautifulsoup4
+pip install lxml
+pip install html5lib
+pip install selenium
+install selenium driver for your Chrome version
+# xattr -d com.apple.quarantine /path/to/ChromDriverExecutable
