@@ -3,10 +3,12 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from time import sleep
 import random
-def main():
-    get_data()
 
-def get_data():
+def main():
+    #get_data()
+    print('main')
+
+def scrape_mvps():
     url_start = 'https://www.basketball-reference.com/awards/awards_{}.html'
     headers = {
         'User-agent':"Mozilla/5.0 (Windows NT 6.1; rv:109.0) Gecko/20100101 Firefox/113.0",
@@ -22,20 +24,23 @@ def get_data():
         with open('mvp/{}.html'.format(year), 'w+',encoding='utf-8') as f:
             f.write(response.text)
 
-def parse_data():
+def parse_mvp_data():
     years = list(range(1991,2025))
     dfs = []
 
-    #for year in years:
-    with open("mvp/2022.html",encoding='utf-8') as f:
-        page = f.read()
-    soup = BeautifulSoup(page, 'html.parser')
-    soup.find('tr', class_ = "over_header").decompose()
-    mvp_table = soup.find_all(id='mvp')
-    mvp = pd.read_html(str(mvp_table))[0]
+    for year in years:
+        with open("mvp/2022.html",encoding='utf-8') as f:
+            page = f.read()
+        soup = BeautifulSoup(page, 'html.parser')
+        soup.find('tr', class_ = "over_header").decompose()
+        mvp_table = soup.find_all(id='mvp')
+        mvp = pd.read_html(str(mvp_table))[0]
+        mvp["Year"] = year
 
-    dfs.append(mvp)
-    print(dfs)
+        dfs.append(mvp)
+
+    mvps = pd.concat(dfs)
+    mvps.to_csv('mvps.csv')
 
 
 
