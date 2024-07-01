@@ -8,7 +8,7 @@ import time
 
 
 def main():
-    #get_data()
+    scrape_mvps()
     print('main')
 
 #######################################  MVP  #######################################
@@ -23,7 +23,7 @@ def scrape_mvps():
     for year in years:
         url = url_start.format(year)
         response = requests.get(url,headers=headers,verify=False)
-        sleep(random.randrange(2,5))
+        sleep(random.randrange(5,10))#Website blocks 20 requests wtihin a minute
 
         with open('mvp/{}.html'.format(year), 'w+',encoding='utf-8') as f:
             f.write(response.text)
@@ -33,7 +33,7 @@ def parse_mvp_data():
     dfs = []
 
     for year in years:
-        with open("mvp/2022.html",encoding='utf-8') as f:
+        with open("mvp/{}.html",encoding='utf-8') as f:
             page = f.read()
         soup = BeautifulSoup(page, 'html.parser')
         soup.find('tr', class_ = "over_header").decompose()
@@ -94,7 +94,7 @@ def scrape_team_rankings():
         url = url_start.format(year)
         response = requests.get(url,headers=headers,verify=False)
 
-        with open('team/{}.html'.format(year), 'w+',encoding='utf-8') as f:
+        with open('team_rankings/{}.html'.format(year), 'w+',encoding='utf-8') as f:
             f.write(response.data)
 
 def parse_team_rankings():
@@ -102,7 +102,7 @@ def parse_team_rankings():
     years = list(range(1991,2025))
 
     for year in years:
-        with open('team/{}.html'.format(year),encoding='utf-8') as f:
+        with open('team_rankings/{}.html'.format(year),encoding='utf-8') as f:
             page = f.read()
 
         soup = BeautifulSoup(page, 'html.parser')
