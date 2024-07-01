@@ -8,7 +8,7 @@ import time
 
 
 def main():
-    scrape_mvps()
+    scrape_player_stats()
     print('main')
 
 #######################################  MVP  #######################################
@@ -33,7 +33,7 @@ def parse_mvp_data():
     dfs = []
 
     for year in years:
-        with open("mvp/{}.html",encoding='utf-8') as f:
+        with open("mvp/{}.html".format(year),encoding='utf-8') as f:
             page = f.read()
         soup = BeautifulSoup(page, 'html.parser')
         soup.find('tr', class_ = "over_header").decompose()
