@@ -1,7 +1,8 @@
 import pandas as pd
+import matplotlib
 
 def main():
-    clean_data()
+    explore_data()
     print('main')
 
 
@@ -59,6 +60,16 @@ def clean_data():
     except KeyError as e:
         print(e)
         pass
+
+def explore_data():
+    stats = pd.read_csv('player_mvp_stats.csv')
+    highest_scoring = stats[stats['G'] > 70].sort_values('PTS',ascending=False).head(10)
+    print(highest_scoring.plot.bar("Player",'PTS'))
+
+    highest_each_year = stats.groupby('Year').apply(lambda x: x.sort_values("PTS",ascending= False)).head(1)
+    print(highest_each_year)
+
+    print(stats.corr()['Share'].plot.bar)#See what stats have the most influence on MVP
 
 
 

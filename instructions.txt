@@ -5,5 +5,6 @@ pip install html5lib
 install extension ExcelViewer
 pip install selenium
 pip install certifi
-install selenium driver for your Chrome version
+install selenium driver for your Chrome version - nah
+pip install matplotlib
 # xattr -d com.apple.quarantine /path/to/ChromDriverExecutable
