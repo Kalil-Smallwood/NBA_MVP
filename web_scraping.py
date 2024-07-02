@@ -8,7 +8,7 @@ import time
 
 
 def main():
-    scrape_player_stats()
+    #parse_team_rankings()
     print('main')
 
 #######################################  MVP  #######################################
@@ -93,9 +93,10 @@ def scrape_team_rankings():
     for year in years:
         url = url_start.format(year)
         response = requests.get(url,headers=headers,verify=False)
+        sleep(random.randrange(5,10))
 
         with open('team_rankings/{}.html'.format(year), 'w+',encoding='utf-8') as f:
-            f.write(response.data)
+            f.write(response.text)
 
 def parse_team_rankings():
     dfs = []
