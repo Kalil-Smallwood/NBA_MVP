@@ -8,7 +8,7 @@ import time
 
 
 def main():
-    #parse_team_rankings()
+    parse_player_stats()
     print('main')
 
 #######################################  MVP  #######################################
@@ -51,7 +51,7 @@ def parse_mvp_data():
 def scrape_player_stats():
     url_start = 'https://www.basketball-reference.com/leagues/NBA_{}_per_game.html'
 
-    driver = webdriver.Chrome(executable_path='/path/to/executable')
+    driver = webdriver.Chrome()
     years = list(range(1991,2025))
 
     for year in years:
@@ -69,7 +69,7 @@ def parse_player_stats():
     dfs = []
     years = list(range(1991,2025))
     for year in years:
-        with open('player_stats/{}.html'.format(year), 'w+',encoding='utf-8') as f:
+        with open('player_stats/{}.html'.format(year),encoding='utf-8') as f:
             page = f.read()
         soup = BeautifulSoup(page,'html.parser')
         soup.find('tr',class_='thead').decompose()
