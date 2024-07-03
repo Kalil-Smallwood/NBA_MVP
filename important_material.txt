@@ -1,5 +1,7 @@
 YouTube Videos to Watch:
 
+General ML: https://www.youtube.com/watch?v=Hr06nSA-qww&list=LL&index=7&t=1243s
+
 NBA MVP webscraping/ML :  https://www.youtube.com/watch?v=JGQGd-oa0l4
 
 Learn About LLMs: https://www.youtube.com/@AndrejKarpathy/videos
