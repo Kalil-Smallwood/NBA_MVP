@@ -1,0 +1,19 @@
+    # reg.fit(train[predictors], train['Share']) 
+    # predictions = reg.predict(test[predictors])
+    # predictions =pd.DataFrame(predictions, columns=['predictions'], index=test.index)
+
+    # combination = pd.concat([test[['Player','Share']],predictions], axis=1)
+
+    #print(combination.sort_values('Share',ascending=False).head(10))
+
+    #print(mean_squared_error(combination['Share'], combination['predictions']))
+    
+    # combination = combination.sort_values('Share', ascending=False)
+    # combination['Rk'] = list(range(1,combination.shape[0]+1))
+    # #print(combination.head(10))
+    # combination = combination.sort_values('predictions', ascending=False)
+    # combination['Predicted_Rk'] = list(range(1,combination.shape[0]+1))
+    #print(combination.head(10))
+
+
+    #print(find_ap(combination))
